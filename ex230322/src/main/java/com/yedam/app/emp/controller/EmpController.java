@@ -13,7 +13,7 @@ public class EmpController {
 	
 	@Autowired
 	EmpService empService;
-	
+		
 	@RequestMapping("/getEmpInfo")
 	@ResponseBody
 	public EmpVO getEmpInfo(EmpVO empVO) {
