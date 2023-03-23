@@ -42,5 +42,5 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
+<!-- 모든 필터는 root 밑에 *(아스타)가 있어야된다  -->
 </web-app>
