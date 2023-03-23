@@ -55,13 +55,37 @@ public class EmpServiceImpl implements EmpService{
 	}
 
 	@Override
-	public int updateEmp(EmpVO empVO) {
-		return empMapper.updateEmpInfo(empVO);
+	public Map<String, String> updateEmp(EmpVO empVO) {
+		Map<String, String> map = new HashMap<>();
+		
+		map.put("사원번호", String.valueOf(empVO.getEmployeeId()));
+		
+		int result = empMapper.updateEmpInfo(empVO);
+		
+		if(result == 1) {
+			map.put("결과", "Success");
+		}else {
+			map.put("결과", "Fail");
+		}
+		
+		return map;		
 	}
 
 	@Override
-	public int deleteEmp(int empId) {
-		return empMapper.deleteEmpInfo(empId);
+	public Map<String, String> deleteEmp(int empId) {
+		Map<String, String> map = new HashMap<>();
+		
+		map.put("사원번호", String.valueOf(empId));
+		
+		int result = empMapper.deleteEmpInfo(empId);
+		
+		if(result == 1) {
+			map.put("결과", "Success");
+		}else {
+			map.put("결과", "Fail");
+		}
+		
+		return map;		
 	}
 
 }
