@@ -39,5 +39,12 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<script>
+		function printAlert(message){
+			alert(message);
+		}
+		
+		printAlert(`${result}`)
+	</script>
 </body>
 </html>
