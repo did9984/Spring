@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -58,12 +59,22 @@ public class EmpController {
 		return "redirect:empList";
 	}
 	
-	//수정 -Process 
-	//1) Client -JSON->SERVER
-	//2) SERVER -text -> Client
+	//수정 - Process 
+	// 1) Client -JSON-> Server
+	// 2) Server -JSON-> Client
 	@PostMapping("/empUpdate")
 	@ResponseBody
-	public Map<String,String> empUpdateProcess(@RequestBody EmpVO empVO) {
-	    return empService.updateEmp(empVO);
+	public Map<String, String> empUpdateProcess(@RequestBody EmpVO empVO) {
+		return empService.updateEmp(empVO);
 	}
+	
+	@PostMapping("/empDelete")
+	@ResponseBody
+	public String empDeleteProcess(@RequestParam int employeeId) {
+		Map<String, String> map = empService.deleteEmp(employeeId);
+		return map.get("결과");
+	}
+	
+	
+	
 }
