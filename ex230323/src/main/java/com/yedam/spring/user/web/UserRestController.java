@@ -13,14 +13,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yedam.spring.user.service.UserListVO;
 import com.yedam.spring.user.service.UserVO;
 
 // 데이터를 반환하는 컨트롤러
 @CrossOrigin
-@RestController //@Contoller + @ResponseBody => 해당 클래스 내의 모든 컨트롤러는 객체를 반환 
+@RestController // @Contoller + @ResponseBody => 해당 클래스 내의 모든 컨트롤러는 객체를 반환
 public class UserRestController {
 
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
@@ -92,10 +94,14 @@ public class UserRestController {
 	}
 	
 	@PostMapping("/upload")
-	public String uploadFile(UserVO userVO) {
-		System.out.println("name : " + userVO.getName());
-		System.out.println("file : " + userVO.getPic().getOriginalFilename());
-		return "업로드를 완료했습니다.";
+	public String uploadFile(@RequestPart MultipartFile[] pic) {
+		//System.out.println(userVO);
+		//System.out.println("name : " + userVO.getName());
+		//System.out.println("file : " + userVO.getPic()[0].getOriginalFilename());
+		
+		System.out.println(pic[0].getOriginalFilename());
+		
+		return "Upload Complete!";
 	}
 
 }

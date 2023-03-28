@@ -67,7 +67,7 @@
 						}else{
 							alert('해당 사원의 정보가 정상적으로 수정되지 않았습니다.');
 						}
-					})
+					})	
 					.catch(reject => console.log(reject));
 				}
 
