@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<script src="https://unpkg.com/vue@3"></script>
-<script src="https://unpkg.com/vue-router@4"></script>
+
 <body>
   <div>
     <form action="http://localhost:8081/spring/upload" method="post" enctype="multipart/form-data">
       <input name="name" value="hong" placeholder="이름">
-      <input name="pic" type="file">
+      <input name="pic" type="file" multiple>
       <button type="submit">전송</button>
     </form>
+
   </div>
   <script>
     fetch('http://localhost:8081/spring/getInfo',
